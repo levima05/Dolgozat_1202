@@ -31,4 +31,9 @@ export class JatekController {
   remove(@Param('id') id: string) {
     return this.jatekService.remove(+id);
   }
+
+  @Delete(':gyerekId/addjatek/:jatekId')
+  addJatek(@Param('gyerekId') gyerekId: string, @Param('jatekId') jatekId: string) {
+    return this.jatekService.addJatek(Number(gyerekId), Number(jatekId))
+  }
 }

@@ -28,6 +28,6 @@ model jatek{
   anyag String 
   suly Int
 
-  gyerekek gyerek[]
+  gyerekId Int
+  gyerekek gyerek @relation(fields: [gyerekId], references: [id])
 }
-

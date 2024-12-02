@@ -18,7 +18,7 @@ export class JatekService {
   async findAll() {
     return this.db.jatek.findMany();
   }
-  
+
   async findOne(id: number) {
     try{
     return this.db.jatek.findUnique({
@@ -29,7 +29,6 @@ export class JatekService {
       return "Nincs ilyen Id-val rendelkező gyerek a listában";
     }
   }
-
 
   async update(id: number, updateJatekDto: UpdateJatekDto) {
     const updatedJatek = await this.db.jatek.update({
@@ -48,5 +47,18 @@ export class JatekService {
     catch {
       return undefined;
     }
+  }
+
+  async addJatek(gyerekId: number, jatekId: number) {
+    return await this.db.gyerek.update({
+      where: {
+        id: gyerekId
+      },
+      data: {
+        jatekok: {
+          connect: {id: jatekId}
+        }
+      }
+    })
   }
 }
