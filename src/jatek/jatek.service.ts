@@ -49,6 +49,19 @@ export class JatekService {
     }
   }
 
+  async removeJatek(gyerekId: number, jatekId: number) {
+    return await this.db.gyerek.update({
+      where: {
+        id: gyerekId
+      },
+      data: {
+        jatekok: {
+          disconnect: { id: jatekId }
+        }
+      }
+    });
+  } 
+  
   async addJatek(gyerekId: number, jatekId: number) {
     return await this.db.gyerek.update({
       where: {
@@ -56,9 +69,10 @@ export class JatekService {
       },
       data: {
         jatekok: {
-          connect: {id: jatekId}
+          connect: { id: jatekId }
         }
       }
-    })
+    });
   }
+  
 }

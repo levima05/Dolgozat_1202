@@ -32,8 +32,13 @@ export class JatekController {
     return this.jatekService.remove(+id);
   }
 
-  @Delete(':gyerekId/addjatek/:jatekId')
+  @Delete(':gyerekId/removejatek/:jatekId')
+  removeJatek(@Param('gyerekId') gyerekId: string, @Param('jatekId') jatekId: string) {
+    return this.jatekService.removeJatek(Number(gyerekId), Number(jatekId));
+  }  
+
+  @Post(':gyerekId/addjatek/:jatekId')
   addJatek(@Param('gyerekId') gyerekId: string, @Param('jatekId') jatekId: string) {
-    return this.jatekService.addJatek(Number(gyerekId), Number(jatekId))
-  }
+  return this.jatekService.addJatek(Number(gyerekId), Number(jatekId));
+}
 }
