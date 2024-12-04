@@ -10,4 +10,5 @@ export class CreateJatekDto {
   @IsNotEmpty()
   @IsInt()
   suly : number
+  gyerekId : number
 }

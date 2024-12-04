@@ -3,4 +3,5 @@ export class Jatek {
   megnevezes : string
   anyag : string
   suly : number
+  gyerekId: number
 }

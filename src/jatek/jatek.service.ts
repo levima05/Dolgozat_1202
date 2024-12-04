@@ -9,9 +9,9 @@ export class JatekService {
   constructor(db: PrismaService) {
     this.db = db;
   }
-  async create( createSongDto: CreateJatekDto) {
+  async create( createJatekDto: CreateJatekDto) {
     return await this.db.jatek.create({
-      data: createSongDto
+      data: createJatekDto
     });
   }
 
@@ -49,7 +49,7 @@ export class JatekService {
     }
   }
 
-  async removeJatek(gyerekId: number, jatekId: number) {
+/*   async removeJatek(gyerekId: number, jatekId: number) {
     return await this.db.gyerek.update({
       where: {
         id: gyerekId
@@ -73,6 +73,6 @@ export class JatekService {
         }
       }
     });
-  }
+  } */
   
 }
